@@ -16,7 +16,7 @@ const FontFamilyPage: React.FC = () => {
     useEffect(() => {
         const fetchFonts = async () => {
             try {
-                const apiKey = import.meta.env.VITE_APP_API_KEY; // Replace with your API key
+                const apiKey = import.meta.env.VITE_APP_API_KEY; 
                 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
                 const url = `${baseUrl}?key=${apiKey}&family=${familyId}`;
 
@@ -50,7 +50,13 @@ const FontFamilyPage: React.FC = () => {
                     <h4>Total Variants: {variants.length}</h4>
                     <ul>
                         {variants.map((variant, index) => (
-                            <li key={index}>{variant}
+                            <li key={index}>
+                                <p>
+                                    {variant.variant}
+                                    <p>
+                                        were
+                                    </p>
+                                </p>
                             </li>
                         ))}
                     </ul>

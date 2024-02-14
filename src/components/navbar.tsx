@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import { Googlefonts, Search } from "../utils/svg-formatter";
 import { Select } from 'antd';
+import { Font } from '../type/type';
 
 const { Option } = Select;
-
-interface Font {
-    family: string;
-    menu: string;
-    popularity: number;
-    lastModified: string;
-}
 
 interface NavbarProps {
     fonts: Font[];
@@ -17,8 +11,8 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ fonts, setFonts }) => {
-    const [sortBy, setSortBy] = useState<string>('trending');
-    const [searchQuery, setSearchQuery] = useState<string>('');
+    const [, setSortBy] = useState<string>('trending');
+    const [, setSearchQuery] = useState<string>('');
 
     const handleSortChange = (value: string) => {
         setSortBy(value);
@@ -28,18 +22,6 @@ const Navbar: React.FC<NavbarProps> = ({ fonts, setFonts }) => {
         setSearchQuery(value);
         const filteredFonts = fonts.filter(font => font.family.toLowerCase().includes(value.toLowerCase()));
         setFonts(filteredFonts);
-    };
-
-    const renderFontOptions = () => {
-        let sortedFonts = [...fonts];
-        if (sortBy === 'popularity') {
-            sortedFonts.sort((a, b) => b.popularity - a.popularity);
-        } else if (sortBy === 'newest') {
-            sortedFonts.sort((a, b) => (new Date(b.lastModified) as any) - (new Date(a.lastModified) as any));
-        }
-        return sortedFonts.map(font => (
-            <Option key={font.family} value={font.family}>{font.family}</Option>
-        ));
     };
 
     return (

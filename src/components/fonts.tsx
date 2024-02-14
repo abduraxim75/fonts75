@@ -2,12 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './navbar';
 import Footergoogle from './footer';
+import { Font } from '../type/type';
 
-type Font = {
-    family: string;
-    menu: string;
-    variants: string[];
-};
 
 type ApiResponse = {
     items: Font[];
@@ -15,7 +11,6 @@ type ApiResponse = {
 
 const FontsComponent: React.FC = () => {
     const [fonts, setFonts] = useState<Font[]>([]);
-    const [sort,setSort] = useState<string>("")
 
     useEffect(() => {
         const fetchFonts = async () => {
@@ -25,18 +20,17 @@ const FontsComponent: React.FC = () => {
                 const url = `${baseUrl}?key=${apiKey}`;
                 const response = await fetch(url);
                 if (!response.ok) {
-                    throw new Error('Fonts yuklashda xatolik');
+                    throw new Error('Failed to fetch fonts');
                 }
                 const data: ApiResponse = await response.json();
                 setFonts(data.items);
             } catch (error) {
-                console.error('Xato: fontlar yuklashda xatolik:', error);
+                console.error('Error fetching fonts:', error);
             }
         };
 
         fetchFonts();
     }, []);
-
 
     useEffect(() => {
         const loadFonts = () => {
@@ -80,14 +74,12 @@ const FontsComponent: React.FC = () => {
                                 <h1 className={`h1-${fontFamily}`} style={{ fontFamily: font.family, fontSize: `${font.menu}px` }}>
                                     Whereas disregard and contempt for human rights have resulted
                                 </h1>
-                                
                             </Link>
                         </li>
-                        
                     );
                 })}
             </ul>
-            <Footergoogle/>
+            <Footergoogle />
         </div>
     );
 };
