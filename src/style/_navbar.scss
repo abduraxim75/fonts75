@@ -1,0 +1,53 @@
+.navbar{
+    margin-top: 25px    ;
+}
+
+
+.nav-container{
+    display: flex;
+}
+
+.searchbar{
+    display: flex;
+    width: 643px;
+    height: 56px;
+    border-radius: 250px;
+    background-color: #D0D3D4;  
+
+    svg{
+        margin-top: 5px;
+        padding: 10px;
+    }
+
+
+    input{
+        width: 595px;
+        height: 56px;
+        background-color: #D0D3D4;
+        outline: none;
+        border: none;
+    }
+}
+
+.select-bar{
+    background-color: #D0D3D4;
+    color: black;
+    border-radius: 0px 10px 10px 0px ;
+
+
+    .select{
+        margin-top: 12px;
+        height: 30px;
+        color: black;
+        background-color: #D0D3D4;
+    }
+}
+
+.google-font-svg{
+    display: flex;
+
+    h2{
+        margin: 10px 8px 0px 8px;
+        color: rgb(157, 153, 153);
+    }
+}

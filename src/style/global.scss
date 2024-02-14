@@ -1,0 +1,33 @@
+@import 'navbar';
+@import 'font';
+@import 'drawerform';
+@import 'footer-google';
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    width: 1440px;
+    margin: 0 auto;
+}
+
+
+li{
+    list-style-type: none;
+}
+
+.p{
+    font-size:15px;}
+
+
+    a{
+        text-decoration: none;
+        color: rgb(26, 24, 24);
+    }
